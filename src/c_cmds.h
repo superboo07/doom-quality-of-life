@@ -121,6 +121,7 @@ extern consolecmd_t     consolecmds[];
 extern alias_t          aliases[MAXALIASES];
 extern dboolean         executingalias;
 extern dboolean         resettingcvar;
+extern dboolean            vanilla;
 
 void alias_cmd_func2(char *cmd, char *parms);
 void bind_cmd_func2(char *cmd, char *parms);
