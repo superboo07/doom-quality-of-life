@@ -492,7 +492,7 @@ static void G_SetInitialWeapon(void)
     viewplayer->weaponowned[wp_chainsaw] = true;
 
     viewplayer->ammo[am_clip] = initial_bullets;
-    viewplayer->ammo[am_shell] = initial_bullets;
+    viewplayer->ammo[am_shell] = initial_shells;
     if (!initial_bullets && weaponinfo[wp_pistol].ammotype != am_noammo)
     {
         viewplayer->readyweapon = wp_chainsaw;
