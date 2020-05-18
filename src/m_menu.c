@@ -40,6 +40,7 @@
 
 #include "am_map.h"
 #include "c_console.h"
+#include "c_cmds.h"
 #include "d_deh.h"
 #include "d_iwad.h"
 #include "doomstat.h"
@@ -115,6 +116,7 @@ static int      functionkey;
 
 static dboolean usinggamepad;
 
+
 // current menudef
 static menu_t   *currentMenu;
 
@@ -129,6 +131,7 @@ extern int      st_palette;
 extern dboolean dowipe;
 
 extern dboolean skippsprinterp;
+extern dboolean vanilla;
 
 //
 // PROTOTYPES
@@ -151,6 +154,7 @@ static void M_MusicVol(int choice);
 static void M_ChangeDetail(int choice);
 static void M_SizeDisplay(int choice);
 static void M_Sound(int choice);
+static void M_VANILLA(int choice);
 
 static void M_FinishReadThis(int choice);
 static void M_LoadSelect(int choice);
@@ -331,7 +335,7 @@ static menuitem_t OptionsMenu[] =
     { -1, "",         0,                   NULL                  },
     {  2, "M_MSENS",  M_ChangeSensitivity, &s_M_MOUSESENSITIVITY },
     { -1, "",         0,                   NULL                  },
-    {  1, "M_SVOL",   M_Sound,             &s_M_SOUNDVOLUME      }
+    { 1, "MHEALTH",   M_VANILLA,          NULL}
 };
 
 static menu_t OptionsDef =
@@ -1478,6 +1482,11 @@ static void M_DrawSound(void)
 static void M_Sound(int choice)
 {
     M_SetupNextMenu(&SoundDef);
+}
+
+void M_VANILLA(int choice)
+{
+    C_ExecuteInputString("vanilla");
 }
 
 static void M_SfxVol(int choice)

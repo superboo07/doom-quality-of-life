@@ -273,3 +273,4 @@ DerivedData/
 *.[oa]
 src/doomretro
 *.db
+*.zip

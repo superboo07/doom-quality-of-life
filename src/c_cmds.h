@@ -125,6 +125,7 @@ extern dboolean            vanilla;
 
 void alias_cmd_func2(char *cmd, char *parms);
 void bind_cmd_func2(char *cmd, char *parms);
+void vanilla_cmd_func2(char* cmd, char* parms);
 
 dboolean C_ExecuteAlias(const char *alias);
 void C_DumpConsoleStringToFile(int index);

@@ -488,48 +488,48 @@ void G_BuildTiccmd(ticcmd_t *cmd)
 
 static void G_SetInitialWeapon(void)
 {
-    if (vanilla || pistolstart != true)
-    { 
-    viewplayer->weaponowned[wp_shotgun] = true;
-    viewplayer->weaponowned[wp_chainsaw] = true;
+        if (vanilla || pistolstart == true)
+        {
+            viewplayer->weaponowned[wp_pistol] = true;
+            viewplayer->weaponowned[wp_fist] = true;
+        }
+        else
+        {
+            viewplayer->weaponowned[wp_shotgun] = true;
+            viewplayer->weaponowned[wp_chainsaw] = true;
+        }
 
     viewplayer->ammo[am_clip] = initial_bullets;
     viewplayer->ammo[am_shell] = initial_shells;
     if (!initial_bullets && weaponinfo[wp_pistol].ammotype != am_noammo)
     {
-        viewplayer->readyweapon = wp_chainsaw;
-        viewplayer->pendingweapon = wp_chainsaw;
-    }
-    else
-    {
-        viewplayer->readyweapon = wp_shotgun;
-        viewplayer->pendingweapon = wp_shotgun;
-    }
-
-    for (int i = 0; i < NUMAMMO; i++)
-        viewplayer->maxammo[i] = maxammo[i];
-    }
-    else
-    {
-        viewplayer->weaponowned[wp_pistol] = true;
-        viewplayer->weaponowned[wp_fist] = true;
-
-        viewplayer->ammo[am_clip] = initial_bullets;
-        viewplayer->ammo[am_shell] = initial_shells;
-        if (!initial_bullets && weaponinfo[wp_pistol].ammotype != am_noammo)
+        if (vanilla || pistolstart == true)
         {
             viewplayer->readyweapon = wp_fist;
             viewplayer->pendingweapon = wp_fist;
         }
         else
         {
+            viewplayer->readyweapon = wp_chainsaw;
+            viewplayer->pendingweapon = wp_chainsaw;
+        }
+    }
+    else
+    {
+        if (vanilla || pistolstart == true)
+        {
             viewplayer->readyweapon = wp_pistol;
             viewplayer->pendingweapon = wp_pistol;
         }
-
-        for (int i = 0; i < NUMAMMO; i++)
-            viewplayer->maxammo[i] = maxammo[i];
+        else
+        {
+            viewplayer->readyweapon = wp_shotgun;
+            viewplayer->pendingweapon = wp_shotgun;
+        }
     }
+
+    for (int i = 0; i < NUMAMMO; i++)
+        viewplayer->maxammo[i] = maxammo[i];
 }
 
 //

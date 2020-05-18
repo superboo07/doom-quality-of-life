@@ -99,6 +99,8 @@ void G_RemoveChoppers(void);
 
 void G_LoadedGameMessage(void);
 
+void G_ResetPlayer(void);
+
 extern fixed_t  forwardmove[2];
 extern fixed_t  sidemove[2];
 extern fixed_t  angleturn[3];
